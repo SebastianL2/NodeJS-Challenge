@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 
 const userCollection = async function () {
     try {
-        const uri = `mongodb+srv://${mongoDb.username}:${mongoDb.password}@${mongoDb.cluster}/${mongoDb.dbname}?retryWrites=true&w=majority`;
+        const uri = process.env.mongoURI;
        
         const cliente = await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         

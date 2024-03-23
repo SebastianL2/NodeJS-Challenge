@@ -48,6 +48,7 @@ export class ProductModel {
     const objectId = new ObjectId(id)
     return db.findOne({ _id: objectId })
   }
+  
   static async getByName ({ nombre_producto }) {
      
     const db = await connect()

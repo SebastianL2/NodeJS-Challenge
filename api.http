@@ -25,11 +25,11 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmU3ZDc4MWZjNmI
   "price": 129.99,
   "brand_special_price": [
     {
-      "userId": "1",
+      "userId": "65ff47525b747f326a8a8667",
       "special_price": 99.99
     },
     {
-      "userId": "2",
+      "userId": "65ff4454fa182ea253363ed3",
       "special_price": 89.99
     }
   ]
@@ -51,7 +51,7 @@ Content-Type: application/json
 GET http://localhost:4500/v1/users/65fe7d781fc6b8b68b4c88f5
 
 ### Eliminar usuario por ID
-DELETE http://localhost:4500/v1/users/65ff47525b747f326a8a8667
+DELETE http://localhost:4500/v1/users/65ff47525b74432427f326a8a8667
 Content-Type: application/json
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmY0NzUyNWI3NDdmMzI2YThhODY2NyIsImlhdCI6MTcxMTIyODc1NCwiZXhwIjoxNzExMzE1MTU0fQ.zVM6iRv_sh8mXSnk_wak9t2s4kXthj8Usx_Csz646E0
 
@@ -77,8 +77,8 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjF
 ### obtener Productos en stock Publicos
 GET http://localhost:4500/v1/products/
 
-### obtener Precios por usarios
-GET http://localhost:4500/v1/products/price/65fe7d781fc6b8b68b4c88f5/Nike%20Air%20Max
+### obtener Precios por usuarios
+GET http://localhost:4500/v1/products/price/65ff4454fa182ea253363ed3/Nike%20Air%20Max2
 
 
 ###
@@ -90,29 +90,7 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjF
 
 
 
-###
-# Crear un nuevo producto Recomendable Hacerlo desde Postman o otro con FormDAta
-###
-POST http://localhost:4500/v1/productos
-Content-Type: multipart/form-data
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
 
-{
-  "title": "Título del producto",
-  "description": "Descripción del producto",
-  "credits": "Créditos del producto",
-  "publicationDate": "2023-09-15T14:30:00Z",
-  "isPublic": "true",
-  "uploader": "ID_del_usuario_que_subió_el_producto",
-  "year": "2023",
-  "director": "Director del producto",
-  "duration": "120",
-  "rate": "8",
-  "poster": "https://example.com/producto-poster.jpg",
-  "genre": "Adventure",
-  "url": "https://example.com/producto-url",
-  "productoFile":"link imane"
-}
 
 ###
 # Obtener un producto por su ID
@@ -132,21 +110,23 @@ x-access-token: token
 # Actualizar un producto por su ID
 ###
 
-PATCH http://localhost:4500/v1/productos/:id
+PATCH http://localhost:4500/v1/products/65ff2c2040f404c23195ad90
 Content-Type: application/json
-x-access-token: token
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmY0NzUyNWI3NDdmMzI2YThhODY2NyIsImlhdCI6MTcxMTIyODc1NCwiZXhwIjoxNzExMzE1MTU0fQ.zVM6iRv_sh8mXSnk_wak9t2s4kXthj8Usx_Csz646E0
 
 {
-  "title": "Nuevo título del producto",
-  "description": "Nueva descripción del producto",
-  "credits": "Nuevos créditos del producto",
-  "publicationDate": "2023-09-15T14:30:00Z",
-  "isPublic": "true",
-  "year": "2023",
-  "director": "Nuevo director del producto",
-  "duration": "150",
-  "rate": "9",
-  "poster": "https://example.com/new-producto-poster.jpg",
-  "genre": "Action",
-  "url": "https://example.com/new-producto-url"
+  "name": "Nike Air Max",
+  "description": "The Nike Air Max sneakers provide cushioning and support for all-day comfort.",
+  "stock": 100,
+  "price": 129.99,
+  "brand_special_price": [
+    {
+      "userId": "65ff47525b747f326a8a8667",
+      "special_price": 99.99
+    },
+    {
+      "userId": "65ff4454fa182ea253363ed3",
+      "special_price": 89.99
+    }
+  ]
 }

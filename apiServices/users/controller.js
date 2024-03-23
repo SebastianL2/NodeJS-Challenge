@@ -77,17 +77,22 @@ export class UserController {
     return res.json({ message: 'User deleted' })
   }
 
-  static async update (req, res) {
-    const result = validatePartialUser(req.body)
-
+  static async update(req, res) {
+    const result = validatePartialUser(req.body);
+  
     if (!result.success) {
-      return res.status(400).json({ error: JSON.parse(result.error.message) })
+      return res.status(400).json({ error: JSON.parse(result.error.message) });
     }
-
-    const { id } = req.params
-
-    const updatedUser = await UserModel.update({ id, input: result.data })
-
-    return res.json(updatedUser)
+  
+    const { id } = req.params;
+  
+  
+    if (!ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid ID' });
+    }
+  
+    const updatedUser = await UserModel.update({ id, input: result.data });
+  
+    return res.json(updatedUser);
   }
 }

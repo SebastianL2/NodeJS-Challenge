@@ -32,16 +32,16 @@ export class VideoController {
     let price = product.price; 
 
     
-    for (const key in product.brand_special_price) {
-      if (product.brand_special_price[key].user === user._id) {
-          price = product.brand_special_price[key].special_price;
-          break; // Detener el bucle una vez que se encuentra el special_price
+    for (const obj of product.brand_special_price) {
+      if (obj.userId === user_id) {
+          price = obj.special_price;
+          break; 
       }
-  }
+    }
     const simplifiedProduct = {
       name: product.name,
       description: product.description,
-      price: product.price
+      price: price
     };
 
     if (product) return res.json(simplifiedProduct)
@@ -78,16 +78,18 @@ export class VideoController {
   }
 
   static async update (req, res) {
+        const { id } = req.params
+    const product = await ProductModel.getById({id})
+    if(!product)return res.status(400).json({ message: 'product not found' })
     const result = validatePartialproduct(req.body)
 
     if (!result.success) {
       return res.status(400).json({ error: JSON.parse(result.error.message) })
     }
 
-    const { id } = req.params
 
     const updatedproduct = await ProductModel.update({ id, input: result.data })
-
-    return res.json(updatedproduct)
+    if(updatedproduct)return res.json(updatedproduct)
+    res.status(200).json({ message: 'product updated' })
   }
 }

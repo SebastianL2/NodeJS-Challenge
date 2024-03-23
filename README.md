@@ -24,11 +24,7 @@ En esta aplicación Node.js, se utilizan variables de entorno para configurar as
 ## Variables de entorno utilizadas:
 
 - **PORT**: Define el puerto en el que el servidor escuchará las solicitudes HTTP. Por defecto, se establece en 4500 en entorno de producción.
-- **MONGODB_USERNAME**: Nombre de usuario para la autenticación en la base de datos MongoDB.
-- **MONGODB_PASSWORD**: Contraseña para la autenticación en la base de datos MongoDB.
-- **MONGODB_CLUSTER**: Nombre del clúster de MongoDB al que se conectará la aplicación.
-- **MONGODB_DBNAME**: Nombre de la base de datos MongoDB que la aplicación utilizará.
-- **MONGODB_HOST**: Host de MongoDB al que se conectará la aplicación.
+- **mongoURI**: Host de MongoDB al que se conectará la aplicación.
 
 Estas variables de entorno se configuran en un archivo `.env` en el directorio raíz del proyecto. Cada vez que la aplicación se inicia, estas variables se cargan desde el archivo `.env` y están disponibles para su uso en el código.
 

@@ -5,8 +5,10 @@ import { verifyToken } from '../../middlewares/authJwt.js';
 export const ProductoRouter = Router()
 
 
-ProductoRouter.get('/',VideoController.getByStock)
-ProductoRouter.post('/',verifyToken, VideoController.create)
+ProductoRouter.get('/all', VideoController.getAll)
+ProductoRouter.get('',VideoController.getByStock)
+ProductoRouter.get('/price/:user_id/:nombre_producto',VideoController.getByEspecialPrice)
+ProductoRouter.post('/', VideoController.create)
 ProductoRouter.get('/:id', VideoController.getById)
 ProductoRouter.delete('/:id',verifyToken, VideoController.delete)
 ProductoRouter.patch('/:id',verifyToken, VideoController.update)

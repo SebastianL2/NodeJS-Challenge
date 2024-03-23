@@ -13,8 +13,7 @@ export const verifyToken = async (req, res, next) => {
     const id= decoded.id;
 
  
-    const user = await UserModel.getById({id});
-    if (!user) return res.status(404).json({ message: "No user found" });
+
 
     next();
   } catch (error) {

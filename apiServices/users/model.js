@@ -37,10 +37,10 @@ export class UserModel {
     return db.find({}).toArray()
   }
 
-  static async getById ({ id }) {
+  static async getById ({ user_id }) {
    
     const db = await connect()
-    const objectId = new ObjectId(id)
+    const objectId = new ObjectId(user_id)
     return db.findOne({ _id: objectId })
   }
 

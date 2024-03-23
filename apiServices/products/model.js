@@ -35,21 +35,12 @@ export class ProductModel {
 
     return db.find({}).toArray()
   }
-  static async getAllStock ({ genre }) {
+  static async getAllStock () {
     const db = await connect()
-
-    if (genre) {
-      return db.find({
-        genre: {
-          $elemMatch: {
-            $regex: genre,
-            $options: 'i'
-          }
-        }
-      }).toArray()
-    }
-
-    return db.find({}).toArray()
+      
+    return db.find({
+      stock: { $gt: 0 } 
+    }).toArray();
   }
   static async getById ({ id }) {
      
@@ -57,13 +48,13 @@ export class ProductModel {
     const objectId = new ObjectId(id)
     return db.findOne({ _id: objectId })
   }
- 
-  
-  static async getByPrivates ({ public_private }) {
+  static async getByName ({ nombre_producto }) {
      
     const db = await connect()
-    return db.find({ isPublic: public_private }).toArray();
+    return db.findOne({ name: nombre_producto });
   }
+  
+
 
   static async create ({ input,cloudUrl }) {
     const db = await connect()

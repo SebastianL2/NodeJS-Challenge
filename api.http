@@ -7,22 +7,32 @@ POST http://localhost:4500/v1/users/signUp/
 Content-Type: application/json
 
 {
-  "username": "Jorgiño444432",
-  "email": "wills322@example.com",
-  "password": "123456S#",
-  "registeredAt": "2024-02-05T12:00:00Z"
+  "username": "AliciaTerry",
+  "email": "alicia.terry@example.com",
+  "password": "Alicia4567!",
+  "registeredAt": "2024-04-02T18:20:00Z"
 }
 
-### Crear un User Resgitrandose con POST
-POST http://localhost:4500/v1/productos
+### Crear un Prodcuto 
+POST http://localhost:4500/v1/products
 Content-Type: application/json
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmU3ZDc4MWZjNmI4YjY4YjRjODhmNSIsImlhdCI6MTcxMTE3NzM3OSwiZXhwIjoxNzExMjYzNzc5fQ.CxDP0M8_YAX_JFW7Kg5Wr3XqxvLfJA9YZcT5kWZgFOQ
 
 {
   "name": "Nike Air Max",
   "description": "The Nike Air Max sneakers provide cushioning and support for all-day comfort.",
+  "stock": 100,
   "price": 129.99,
-  "special_price": 99.99
+  "brand_special_price": [
+    {
+      "userId": "1",
+      "special_price": 99.99
+    },
+    {
+      "userId": "2",
+      "special_price": 89.99
+    }
+  ]
 }
 
 ### Iniciar Sesion
@@ -38,10 +48,13 @@ Content-Type: application/json
 ###
 # Obtener un usuario por su ID
 ###
-GET http://localhost:4500/v1/users/65c096976a9f1af4795034a2
+GET http://localhost:4500/v1/users/65fe7d781fc6b8b68b4c88f5
 
 ### Eliminar usuario por ID
-DELETE http://localhost:4500/v1/users/65c315d483d1c949e8403688
+DELETE http://localhost:4500/v1/users/65ff47525b747f326a8a8667
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmY0NzUyNWI3NDdmMzI2YThhODY2NyIsImlhdCI6MTcxMTIyODc1NCwiZXhwIjoxNzExMzE1MTU0fQ.zVM6iRv_sh8mXSnk_wak9t2s4kXthj8Usx_Csz646E0
+
 
 ### Actualizar usuario por ID
 PATCH http://localhost:4500/v1/users/:id
@@ -63,6 +76,9 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjF
 
 ### obtener Productos en stock Publicos
 GET http://localhost:4500/v1/products/
+
+### obtener Precios por usarios
+GET http://localhost:4500/v1/products/price/65fe7d781fc6b8b68b4c88f5/Nike%20Air%20Max
 
 
 ###

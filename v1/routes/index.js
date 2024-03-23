@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {userRouter} from '../../apiServices/users/route.js';
-import { videosRouter } from '../../apiServices/sneakers/route.js'
+import { ProductoRouter } from '../../apiServices/products/route.js'
 
 /**
  * @openapi
@@ -111,10 +111,10 @@ import { videosRouter } from '../../apiServices/sneakers/route.js'
  *     responses:
  *       '200':
  *         description: OK
-  * /v1/videos/privates:
+  * /v1/Productos/privates:
  *   get:
- *     summary: Obtener videos privados solo si estás registrado
- *     operationId: getPrivateVideos
+ *     summary: Obtener Productos privados solo si estás registrado
+ *     operationId: getPrivateProductos
  *     parameters:
  *       - name: x-access-token
  *         in: header
@@ -125,18 +125,18 @@ import { videosRouter } from '../../apiServices/sneakers/route.js'
  *       '200':
  *         description: OK
  *
- * /v1/videos/publics:
+ * /v1/Productos/publics:
  *   get:
- *     summary: Obtener videos públicos
- *     operationId: getPublicVideos
+ *     summary: Obtener Productos públicos
+ *     operationId: getPublicProductos
  *     responses:
  *       '200':
  *         description: OK
  *
- * /v1/videos:
+ * /v1/Productos:
  *   get:
- *     summary: Obtener todos los videos
- *     operationId: getAllVideos
+ *     summary: Obtener todos los Productos
+ *     operationId: getAllProductos
  *     parameters:
  *       - name: x-access-token
  *         in: header
@@ -198,7 +198,7 @@ import { videosRouter } from '../../apiServices/sneakers/route.js'
  *       '200':
  *         description: OK
  
- * /v1/videos/{id}:
+ * /v1/Productos/{id}:
  *   get:
  *     summary: Obtener un video por su ID
  *     operationId: getVideoById
@@ -270,6 +270,6 @@ import { videosRouter } from '../../apiServices/sneakers/route.js'
  */
 const router = Router();
 router.use('/users', userRouter);
-router.use('/videos', videosRouter)
+router.use('/Productos', ProductoRouter)
 
 export default router;

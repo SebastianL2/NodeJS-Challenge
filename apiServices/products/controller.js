@@ -10,7 +10,7 @@ export class VideoController {
 
   static async getByStock (req, res) {
     const { genre } = req.query
-    const users = await ProductModel.getAll({ genre })
+    const users = await ProductModel.getAllStock({ genre })
     res.json(users)
   }
   

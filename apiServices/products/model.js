@@ -35,7 +35,22 @@ export class ProductModel {
 
     return db.find({}).toArray()
   }
+  static async getAllStock ({ genre }) {
+    const db = await connect()
 
+    if (genre) {
+      return db.find({
+        genre: {
+          $elemMatch: {
+            $regex: genre,
+            $options: 'i'
+          }
+        }
+      }).toArray()
+    }
+
+    return db.find({}).toArray()
+  }
   static async getById ({ id }) {
      
     const db = await connect()

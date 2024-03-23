@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ### Crear un User Resgitrandose con POST
-POST http://localhost:4500/v1/videos
+POST http://localhost:4500/v1/productos
 Content-Type: application/json
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmU3ZDc4MWZjNmI4YjY4YjRjODhmNSIsImlhdCI6MTcxMTE3NzM3OSwiZXhwIjoxNzExMjYzNzc5fQ.CxDP0M8_YAX_JFW7Kg5Wr3XqxvLfJA9YZcT5kWZgFOQ
 
@@ -56,20 +56,20 @@ Content-Type: application/json
 }
 
 
-### obtener Videos Privados solo si estas registrado
-GET http://localhost:4500/v1/videos/privates
+### obtener productos Privados solo si estas registrado
+GET http://localhost:4500/v1/productos/privates
 Content-Type: application/json
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
 
-### obtener Videos Publicos
-GET http://localhost:4500/v1/videos/publics
+### obtener Productos en stock Publicos
+GET http://localhost:4500/v1/productos/publics
 
 
 ###
-# Obtener todos los videos
+# Obtener todos los productos
 ###
 
-GET http://localhost:4500/v1/videos
+GET http://localhost:4500/v1/productos
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
 
 
@@ -77,7 +77,7 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjF
 ###
 # Crear un nuevo video Recomendable Hacerlo desde Postman o otro con FormDAta
 ###
-POST http://localhost:4500/v1/videos
+POST http://localhost:4500/v1/productos
 Content-Type: multipart/form-data
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
 
@@ -102,21 +102,21 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjF
 # Obtener un video por su ID
 ###
 
-GET http://localhost:4500/v1/videos/:id
+GET http://localhost:4500/v1/productos/:id
 
 
 ###
 # Eliminar un video por su ID
 ###
 
-DELETE http://localhost:4500/v1/videos/:id
+DELETE http://localhost:4500/v1/productos/:id
 x-access-token: token
 
 ###
 # Actualizar un video por su ID
 ###
 
-PATCH http://localhost:4500/v1/videos/:id
+PATCH http://localhost:4500/v1/productos/:id
 Content-Type: application/json
 x-access-token: token
 

@@ -5,8 +5,7 @@ import { verifyToken } from '../../middlewares/authJwt.js';
 export const ProductoRouter = Router()
 
 
-ProductoRouter.get('/',verifyToken, VideoController.getAll)
-ProductoRouter.get('/producs',VideoController.getByStock)
+ProductoRouter.get('/',VideoController.getByStock)
 ProductoRouter.post('/',verifyToken, VideoController.create)
 ProductoRouter.get('/:id', VideoController.getById)
 ProductoRouter.delete('/:id',verifyToken, VideoController.delete)

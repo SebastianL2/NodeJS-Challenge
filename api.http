@@ -57,12 +57,12 @@ Content-Type: application/json
 
 
 ### obtener productos Privados solo si estas registrado
-GET http://localhost:4500/v1/productos/privates
+GET http://localhost:4500/v1/products/
 Content-Type: application/json
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
 
 ### obtener Productos en stock Publicos
-GET http://localhost:4500/v1/productos/publics
+GET http://localhost:4500/v1/products/
 
 
 ###
@@ -75,45 +75,45 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjF
 
 
 ###
-# Crear un nuevo video Recomendable Hacerlo desde Postman o otro con FormDAta
+# Crear un nuevo producto Recomendable Hacerlo desde Postman o otro con FormDAta
 ###
 POST http://localhost:4500/v1/productos
 Content-Type: multipart/form-data
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
 
 {
-  "title": "Título del video",
-  "description": "Descripción del video",
-  "credits": "Créditos del video",
+  "title": "Título del producto",
+  "description": "Descripción del producto",
+  "credits": "Créditos del producto",
   "publicationDate": "2023-09-15T14:30:00Z",
   "isPublic": "true",
-  "uploader": "ID_del_usuario_que_subió_el_video",
+  "uploader": "ID_del_usuario_que_subió_el_producto",
   "year": "2023",
-  "director": "Director del video",
+  "director": "Director del producto",
   "duration": "120",
   "rate": "8",
-  "poster": "https://example.com/video-poster.jpg",
+  "poster": "https://example.com/producto-poster.jpg",
   "genre": "Adventure",
-  "url": "https://example.com/video-url",
-  "videoFile":"link imane"
+  "url": "https://example.com/producto-url",
+  "productoFile":"link imane"
 }
 
 ###
-# Obtener un video por su ID
+# Obtener un producto por su ID
 ###
 
 GET http://localhost:4500/v1/productos/:id
 
 
 ###
-# Eliminar un video por su ID
+# Eliminar un producto por su ID
 ###
 
 DELETE http://localhost:4500/v1/productos/:id
 x-access-token: token
 
 ###
-# Actualizar un video por su ID
+# Actualizar un producto por su ID
 ###
 
 PATCH http://localhost:4500/v1/productos/:id
@@ -121,16 +121,16 @@ Content-Type: application/json
 x-access-token: token
 
 {
-  "title": "Nuevo título del video",
-  "description": "Nueva descripción del video",
-  "credits": "Nuevos créditos del video",
+  "title": "Nuevo título del producto",
+  "description": "Nueva descripción del producto",
+  "credits": "Nuevos créditos del producto",
   "publicationDate": "2023-09-15T14:30:00Z",
   "isPublic": "true",
   "year": "2023",
-  "director": "Nuevo director del video",
+  "director": "Nuevo director del producto",
   "duration": "150",
   "rate": "9",
-  "poster": "https://example.com/new-video-poster.jpg",
+  "poster": "https://example.com/new-producto-poster.jpg",
   "genre": "Action",
-  "url": "https://example.com/new-video-url"
+  "url": "https://example.com/new-producto-url"
 }

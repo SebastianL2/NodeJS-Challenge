@@ -11,7 +11,8 @@ import { ProductRouter } from '../../apiServices/products/route.js'
  *     responses:
  *       '200':
  *         description: OK
- *
+ * 
+ * 
  * /v1/users/signUp:
  *   post:
  *     summary: Crear un usuario registrándose
@@ -32,11 +33,11 @@ import { ProductRouter } from '../../apiServices/products/route.js'
  *               registeredAt:
  *                 type: string
  *                 format: date-time
- *               role:
- *                 type: string
  *     responses:
  *       '200':
  *         description: OK
+ * 
+ * @openapi
  * /v1/users/signIn:
  *   post:
  *     summary: Iniciar sesión
@@ -55,7 +56,8 @@ import { ProductRouter } from '../../apiServices/products/route.js'
  *     responses:
  *       '200':
  *         description: OK
- *
+ * 
+ * @openapi
  * /v1/users/{id}:
  *   get:
  *     summary: Obtener un usuario por su ID
@@ -106,102 +108,85 @@ import { ProductRouter } from '../../apiServices/products/route.js'
  *               registeredAt:
  *                 type: string
  *                 format: date-time
- *               role:
- *                 type: string
- *     responses:
- *       '200':
- *         description: OK
-  * /v1/Productos/privates:
- *   get:
- *     summary: Obtener Productos privados solo si estás registrado
- *     operationId: getPrivateProductos
- *     parameters:
- *       - name: x-access-token
- *         in: header
- *         required: true
- *         schema:
- *           type: string
  *     responses:
  *       '200':
  *         description: OK
  *
- * /v1/Productos/publics:
- *   get:
- *     summary: Obtener Productos públicos
- *     operationId: getPublicProductos
- *     responses:
- *       '200':
- *         description: OK
- *
- * /v1/Productos:
- *   get:
- *     summary: Obtener todos los Productos
- *     operationId: getAllProductos
- *     parameters:
- *       - name: x-access-token
- *         in: header
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       '200':
- *         description: OK
+ * @openapi
+ * /v1/products:
  *   post:
- *     summary: Crear un nuevo video
- *     operationId: createVideo
- *     parameters:
- *       - name: x-access-token
- *         in: header
- *         required: true
- *         schema:
- *           type: string
+ *     summary: Crear un Producto
+ *     operationId: createProduct
  *     requestBody:
  *       required: true
  *       content:
- *         multipart/form-data:
+ *         application/json:
  *           schema:
  *             type: object
  *             properties:
- *               title:
+ *               name:
  *                 type: string
  *               description:
  *                 type: string
- *               credits:
- *                 type: string
- *               publicationDate:
- *                 type: string
- *                 format: date-time
- *               isPublic:
- *                 type: string
- *               uploader:
- *                 type: string
- *               year:
- *                 type: string
- *               director:
- *                 type: string
- *               duration:
- *                 type: string
- *               rate:
- *                 type: string
- *               poster:
- *                 type: string
- *               genre:
- *                 type: string
- *               url:
- *                 type: string
- *               videoFile:
+ *               stock:
+ *                 type: integer
+ *               price:
+ *                 type: number
+ *               brand_special_price:
  *                 type: array
  *                 items:
- *                   type: string
- *                   format: binary
+ *                   type: object
+ *                   properties:
+ *                     userId:
+ *                       type: string
+ *                     special_price:
+ *                       type: number
  *     responses:
  *       '200':
  *         description: OK
- 
- * /v1/Productos/{id}:
+ * 
+ * @openapi
+ * /v1/products:
  *   get:
- *     summary: Obtener un video por su ID
- *     operationId: getVideoById
+ *     summary: Obtener Productos en stock
+ *     operationId: getProductsInStock
+ *     responses:
+ *       '200':
+ *         description: OK
+ * @openapi
+ * /v1/products/price/{userId}/{productName}:
+ *   get:
+ *     summary: Obtener Precios por usuarios y nombre de producto
+ *     operationId: getProductPrice
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - name: productName
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK
+ * 
+ * @openapi
+ * /v1/products:
+ *   get:
+ *     summary: Obtener todos los productos
+ *     operationId: getAllProducts
+ *     responses:
+ *       '200':
+ *         description: OK
+ * 
+ * @openapi
+ * /v1/products/{id}:
+ *   get:
+ *     summary: Obtener un producto por su ID
+ *     operationId: getProductById
  *     parameters:
  *       - name: id
  *         in: path
@@ -211,9 +196,12 @@ import { ProductRouter } from '../../apiServices/products/route.js'
  *     responses:
  *       '200':
  *         description: OK
+ * 
+ * @openapi
+ * /v1/products/{id}:
  *   delete:
- *     summary: Eliminar un video por su ID
- *     operationId: deleteVideoById
+ *     summary: Eliminar un producto por su ID
+ *     operationId: deleteProductById
  *     parameters:
  *       - name: id
  *         in: path
@@ -223,9 +211,12 @@ import { ProductRouter } from '../../apiServices/products/route.js'
  *     responses:
  *       '200':
  *         description: OK
+ * 
+ * @openapi
+ * /v1/products/{id}:
  *   patch:
- *     summary: Actualizar un video por su ID
- *     operationId: updateVideoById
+ *     summary: Actualizar un producto por su ID
+ *     operationId: updateProductById
  *     parameters:
  *       - name: id
  *         in: path
@@ -239,35 +230,28 @@ import { ProductRouter } from '../../apiServices/products/route.js'
  *           schema:
  *             type: object
  *             properties:
- *               title:
+ *               name:
  *                 type: string
  *               description:
  *                 type: string
- *               credits:
- *                 type: string
- *               publicationDate:
- *                 type: string
- *                 format: date-time
- *               isPublic:
- *                 type: string
- *               year:
- *                 type: string
- *               director:
- *                 type: string
- *               duration:
- *                 type: string
- *               rate:
- *                 type: string
- *               poster:
- *                 type: string
- *               genre:
- *                 type: string
- *               url:
- *                 type: string
+ *               stock:
+ *                 type: integer
+ *               price:
+ *                 type: number
+ *               brand_special_price:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     userId:
+ *                       type: string
+ *                     special_price:
+ *                       type: number
  *     responses:
  *       '200':
  *         description: OK
  */
+
 const router = Router();
 router.use('/users', userRouter);
 router.use('/Products', ProductRouter)

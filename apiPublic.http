@@ -1,124 +1,122 @@
 
 ###  getAll Users con POST
-GET https://back-end-fase2.vercel.app/v1/users
+GET https://node-js-challenge-xi.vercel.app/v1/users
 
 ### Crear un User Resgitrandose con POST
-POST https://back-end-fase2.vercel.app/v1/users/signUp/
+POST https://node-js-challenge-xi.vercel.app/v1/users/signUp/
 Content-Type: application/json
 
 {
-  "username": "Jorgiño32",
-  "email": "wills@example.com",
-  "password": "12345S#",
-  "registeredAt": "2024-02-05T12:00:00Z",
-  "role": "user"
+  "username": "AliciaTerry",
+  "email": "alicia.terry@example.com",
+  "password": "Alicia4567!",
+  "registeredAt": "2024-04-02T18:20:00Z"
 }
 
+
 ### Iniciar Sesion
-POST https://back-end-fase2.vercel.app/v1/users/signIn/
+POST https://node-js-challenge-xi.vercel.app/v1/users/signIn/
 Content-Type: application/json
 
 {
-"email": "wills@example.com",
-"password": "12345S#"
+  "username": "Jorgiño444432",
+  "email": "wills322@example.com",
+  "password": "123456S#"
 }
 
 ###
 # Obtener un usuario por su ID
 ###
-GET https://back-end-fase2.vercel.app/v1/users/65c096976a9f1af4795034a2
+GET https://node-js-challenge-xi.vercel.app/v1/users/65fe7d781fc6b8b68b4c88f5
 
 ### Eliminar usuario por ID
-DELETE https://back-end-fase2.vercel.app/v1/users/:id
+DELETE https://node-js-challenge-xi.vercel.app/v1/users/65ffbf1a52a84c9618515d90
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmU3ZDc4MWZjNmI4YjY4YjRjODhmNSIsImlhdCI6MTcxMTI1ODk0MCwiZXhwIjoxNzExMzQ1MzQwfQ.o5dUaEIfXNMIyY-tmG4k-lCfRDzZizfjMoC_UglUfWI
 
 ### Actualizar usuario por ID
-PATCH https://back-end-fase2.vercel.app/v1/users/:id
+PATCH https://node-js-challenge-xi.vercel.app/v1/users/:id
 Content-Type: application/json
 
 {
   "username": "nuevo_nombre_de_usuario",
   "email": "nuevo_email@example.com",
   "password": "NuevaPassword123!",
-  "registeredAt": "2024-02-05T12:00:00Z",
-  "role": "admin"
+  "registeredAt": "2024-02-05T12:00:00Z"
 }
 
 
-### obtener productos Privados solo si estas registrado
-GET https://back-end-fase2.vercel.app/v1/productos/privates
-Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzMyMGE4ZGY5Y2I5ZWIyYzVkY2RjMSIsImlhdCI6MTcwNzI4NjcwNiwiZXhwIjoxNzA3MzczMTA2fQ.6ULUOh63mA3CKu71_VfQ_gYstK3M9PwejPRC7O4WvBo
 
-### obtener productos Publicos
-GET https://back-end-fase2.vercel.app/v1/productos/publics
+
+### Crear un Prodcuto 
+POST https://node-js-challenge-xi.vercel.app/v1/products
+Content-Type: application/json
+
+{
+  "name": "Nike Air Max",
+  "description": "The Nike Air Max sneakers provide cushioning and support for all-day comfort.",
+  "stock": 100,
+  "price": 129.99,
+  "brand_special_price": [
+    {
+      "userId": "65ff47525b747f326a8a8667",
+      "special_price": 99.99
+    },
+    {
+      "userId": "65ff4454fa182ea253363ed3",
+      "special_price": 89.99
+    }
+  ]
+}
+
+### obtener Productos en stock 
+GET https://node-js-challenge-xi.vercel.app/v1/products/
+
+### obtener Precios por usuarios y nombre de prodcuto
+GET https://node-js-challenge-xi.vercel.app/v1/products/price/65ff4439fa182ea253363ed1/Nike%20Air%20Max
 
 
 ###
 # Obtener todos los productos
 ###
 
-GET https://back-end-fase2.vercel.app/v1/productos
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzMyMGE4ZGY5Y2I5ZWIyYzVkY2RjMSIsImlhdCI6MTcwNzI4NjcwNiwiZXhwIjoxNzA3MzczMTA2fQ.6ULUOh63mA3CKu71_VfQ_gYstK3M9PwejPRC7O4WvBo
-
-
-
-###
-# Crear un nuevo producto Recomendable Hacerlo desde Postman o otro con FormDAta
-###
-POST https://back-end-fase2.vercel.app/v1/productos
-Content-Type: multipart/form-data
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzMyMGE4ZGY5Y2I5ZWIyYzVkY2RjMSIsImlhdCI6MTcwNzI4NjcwNiwiZXhwIjoxNzA3MzczMTA2fQ.6ULUOh63mA3CKu71_VfQ_gYstK3M9PwejPRC7O4WvBo
-
-{
-  "title": "Título del producto",
-  "description": "Descripción del producto",
-  "credits": "Créditos del producto",
-  "publicationDate": "2023-09-15T14:30:00Z",
-  "isPublic": "true",
-  "uploader": "ID_del_usuario_que_subió_el_producto",
-  "year": "2023",
-  "director": "Director del producto",
-  "duration": "120",
-  "rate": "8",
-  "poster": "https://example.com/producto-poster.jpg",
-  "genre": "Adventure",
-  "url": "https://example.com/producto-url",
-  "productoFile":"link imane"
-}
+GET https://node-js-challenge-xi.vercel.app/v1/products/all
 
 ###
 # Obtener un producto por su ID
 ###
 
-GET https://back-end-fase2.vercel.app/v1/productos/:id
+GET https://node-js-challenge-xi.vercel.app/v1/products/65ff08293c3a8c5789f8f48c
 
 
 ###
 # Eliminar un producto por su ID
 ###
 
-DELETE https://back-end-fase2.vercel.app/v1/productos/:id
+DELETE https://node-js-challenge-xi.vercel.app/v1/products/:id
 x-access-token: token
 
 ###
 # Actualizar un producto por su ID
 ###
 
-PATCH https://back-end-fase2.vercel.app/v1/productos/:id
+PATCH https://node-js-challenge-xi.vercel.app/v1/products/65ff2c2040f404c23195ad90
 Content-Type: application/json
-x-access-token: token
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmY0NzUyNWI3NDdmMzI2YThhODY2NyIsImlhdCI6MTcxMTIyODc1NCwiZXhwIjoxNzExMzE1MTU0fQ.zVM6iRv_sh8mXSnk_wak9t2s4kXthj8Usx_Csz646E0
 
 {
-  "title": "Nuevo título del producto",
-  "description": "Nueva descripción del producto",
-  "credits": "Nuevos créditos del producto",
-  "publicationDate": "2023-09-15T14:30:00Z",
-  "isPublic": "true",
-  "year": "2023",
-  "director": "Nuevo director del producto",
-  "duration": "150",
-  "rate": "9",
-  "poster": "https://example.com/new-producto-poster.jpg",
-  "genre": "Action",
-  "url": "https://example.com/new-producto-url"
+  "name": "Nike Air Max",
+  "description": "The Nike Air Max sneakers provide cushioning and support for all-day comfort.",
+  "stock": 100,
+  "price": 129.99,
+  "brand_special_price": [
+    {
+      "userId": "65ff47525b747f326a8a8667",
+      "special_price": 99.99
+    },
+    {
+      "userId": "65ff4454fa182ea253363ed3",
+      "special_price": 89.99
+    }
+  ]
 }

@@ -53,7 +53,6 @@ Content-Type: application/json
 ### Crear un Prodcuto 
 POST http://localhost:4500/v1/products
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmU3ZDc4MWZjNmI4YjY4YjRjODhmNSIsImlhdCI6MTcxMTE3NzM3OSwiZXhwIjoxNzExMjYzNzc5fQ.CxDP0M8_YAX_JFW7Kg5Wr3XqxvLfJA9YZcT5kWZgFOQ
 
 {
   "name": "Nike Air Max",
@@ -72,11 +71,11 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmU3ZDc4MWZjNmI
   ]
 }
 
-### obtener Productos en stock Publicos
+### obtener Productos en stock 
 GET http://localhost:4500/v1/products/
 
 ### obtener Precios por usuarios
-GET http://localhost:4500/v1/products/price/65ff4454fa182ea253363ed3/Nike%20Air%20Max2
+GET http://localhost:4500/v1/products/price/65ff4454fa182ea253363ed3/Nike%20Air%20Max
 
 
 ###
@@ -84,7 +83,6 @@ GET http://localhost:4500/v1/products/price/65ff4454fa182ea253363ed3/Nike%20Air%
 ###
 
 GET http://localhost:4500/v1/products
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
 
 ###
 # Obtener un producto por su ID

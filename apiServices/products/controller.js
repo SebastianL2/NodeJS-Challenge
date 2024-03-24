@@ -22,31 +22,37 @@ export class VideoController {
     res.status(404).json({ message: 'product not found' })
   }
 
-  static async getByEspecialPrice (req, res) {
+  static async getByEspecialPrice(req, res) {
     const { user_id, nombre_producto } = req.params;
-    console.log(user_id, nombre_producto)
+    console.log(user_id, nombre_producto);
 
-    const user = await UserModel.getById({ user_id })
-    if (!user) return res.status(404).json({ message: 'User not found' })
-    const product = await ProductModel.getByName({ nombre_producto })
-    let price = product.price; 
+    const user = await UserModel.getById({ user_id });
+    if (!user) return res.status(404).json({ message: 'User not found' });
 
-    
-    for (const obj of product.brand_special_price) {
-      if (obj.userId === user_id) {
-          price = obj.special_price;
-          break; 
-      }
+    try {
+        const product = await ProductModel.getByName({ nombre_producto });
+        if (!product) throw new Error('Product not found');
+        
+        let price = product.price;
+
+        for (const obj of product.brand_special_price) {
+            if (obj.userId === user_id) {
+                price = obj.special_price;
+                break;
+            }
+        }
+
+        const simplifiedProduct = {
+            name: product.name,
+            description: product.description,
+            price: price
+        };
+
+        return res.json(simplifiedProduct);
+    } catch (error) {
+        return res.status(404).json({ message: error.message });
     }
-    const simplifiedProduct = {
-      name: product.name,
-      description: product.description,
-      price: price
-    };
-
-    if (product) return res.json(simplifiedProduct)
-    res.status(404).json({ message: 'product not found' })
-  }
+}
 
 
 

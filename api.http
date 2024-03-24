@@ -43,8 +43,7 @@ Content-Type: application/json
   "username": "nuevo_nombre_de_usuario",
   "email": "nuevo_email@example.com",
   "password": "NuevaPassword123!",
-  "registeredAt": "2024-02-05T12:00:00Z",
-  "role": "admin"
+  "registeredAt": "2024-02-05T12:00:00Z"
 }
 
 
@@ -72,10 +71,10 @@ Content-Type: application/json
 }
 
 ### obtener Productos en stock 
-GET http://localhost:4500/v1/products/
+GET https://node-js-challenge-xi.vercel.app/v1/products/
 
-### obtener Precios por usuarios
-GET http://localhost:4500/v1/products/price/65ff4454fa182ea253363ed3/Nike%20Air%20Max
+### obtener Precios por usuarios y nombre de prodcuto
+GET http://localhost:4500/v1/products/price/65ff4439fa182ea253363ed1/Nike%20Air%20Max
 
 
 ###

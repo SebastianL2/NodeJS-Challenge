@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {userRouter} from '../../apiServices/users/route.js';
-import { ProductoRouter } from '../../apiServices/products/route.js'
+import { ProductRouter } from '../../apiServices/products/route.js'
 
 /**
  * @openapi
@@ -270,6 +270,6 @@ import { ProductoRouter } from '../../apiServices/products/route.js'
  */
 const router = Router();
 router.use('/users', userRouter);
-router.use('/Products', ProductoRouter)
+router.use('/Products', ProductRouter)
 
 export default router;

@@ -2,14 +2,14 @@ import { Router } from 'express'
 
 import { VideoController } from './controller.js'
 import { verifyToken } from '../../middlewares/authJwt.js';
-export const ProductoRouter = Router()
+export const ProductRouter = Router()
 
 
-ProductoRouter.get('/all', VideoController.getAll)
-ProductoRouter.get('',VideoController.getByStock)
-ProductoRouter.get('/price/:user_id/:nombre_producto',VideoController.getByEspecialPrice)
-ProductoRouter.post('/', VideoController.create)
-ProductoRouter.get('/:id', VideoController.getById)
-ProductoRouter.delete('/:id',verifyToken, VideoController.delete)
-ProductoRouter.patch('/:id',verifyToken, VideoController.update)
+ProductRouter.get('/all', VideoController.getAll)
+ProductRouter.get('',VideoController.getByStock)
+ProductRouter.get('/price/:user_id/:nombre_producto',VideoController.getByEspecialPrice)
+ProductRouter.post('/', VideoController.create)
+ProductRouter.get('/:id', VideoController.getById)
+ProductRouter.delete('/:id',verifyToken, VideoController.delete)
+ProductRouter.patch('/:id',verifyToken, VideoController.update)
 

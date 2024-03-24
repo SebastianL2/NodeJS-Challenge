@@ -13,27 +13,6 @@ Content-Type: application/json
   "registeredAt": "2024-04-02T18:20:00Z"
 }
 
-### Crear un Prodcuto 
-POST http://localhost:4500/v1/products
-Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmU3ZDc4MWZjNmI4YjY4YjRjODhmNSIsImlhdCI6MTcxMTE3NzM3OSwiZXhwIjoxNzExMjYzNzc5fQ.CxDP0M8_YAX_JFW7Kg5Wr3XqxvLfJA9YZcT5kWZgFOQ
-
-{
-  "name": "Nike Air Max",
-  "description": "The Nike Air Max sneakers provide cushioning and support for all-day comfort.",
-  "stock": 100,
-  "price": 129.99,
-  "brand_special_price": [
-    {
-      "userId": "65ff47525b747f326a8a8667",
-      "special_price": 99.99
-    },
-    {
-      "userId": "65ff4454fa182ea253363ed3",
-      "special_price": 89.99
-    }
-  ]
-}
 
 ### Iniciar Sesion
 POST http://localhost:4500/v1/users/signIn/
@@ -69,10 +48,29 @@ Content-Type: application/json
 }
 
 
-### obtener productos Privados solo si estas registrado
-GET http://localhost:4500/v1/products/
+
+
+### Crear un Prodcuto 
+POST http://localhost:4500/v1/products
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmU3ZDc4MWZjNmI4YjY4YjRjODhmNSIsImlhdCI6MTcxMTE3NzM3OSwiZXhwIjoxNzExMjYzNzc5fQ.CxDP0M8_YAX_JFW7Kg5Wr3XqxvLfJA9YZcT5kWZgFOQ
+
+{
+  "name": "Nike Air Max",
+  "description": "The Nike Air Max sneakers provide cushioning and support for all-day comfort.",
+  "stock": 100,
+  "price": 129.99,
+  "brand_special_price": [
+    {
+      "userId": "65ff47525b747f326a8a8667",
+      "special_price": 99.99
+    },
+    {
+      "userId": "65ff4454fa182ea253363ed3",
+      "special_price": 89.99
+    }
+  ]
+}
 
 ### obtener Productos en stock Publicos
 GET http://localhost:4500/v1/products/
@@ -85,25 +83,21 @@ GET http://localhost:4500/v1/products/price/65ff4454fa182ea253363ed3/Nike%20Air%
 # Obtener todos los productos
 ###
 
-GET http://localhost:4500/v1/productos
+GET http://localhost:4500/v1/products
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzA5Njk3NmE5ZjFhZjQ3OTUwMzRhMiIsImlhdCI6MTcwNzEyMDI4MCwiZXhwIjoxNzA3MjA2NjgwfQ.euxtZaG1Ivxc0YBpuNjH01WuFX6LoegRIlvpM8UkuZo
-
-
-
-
 
 ###
 # Obtener un producto por su ID
 ###
 
-GET http://localhost:4500/v1/productos/:id
+GET http://localhost:4500/v1/products/65ff08293c3a8c5789f8f48c
 
 
 ###
 # Eliminar un producto por su ID
 ###
 
-DELETE http://localhost:4500/v1/productos/:id
+DELETE http://localhost:4500/v1/products/:id
 x-access-token: token
 
 ###
